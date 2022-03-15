@@ -86,7 +86,7 @@ export default function Slug() {
           if(navigator.clipboard) {
             //@ts-ignore
             navigator.clipboard.writeText(e.target.getAttribute("data-clipboard-text"));
-            jsConfetti.addConfetti()
+            // jsConfetti.addConfetti()
             copyRef.current && (copyRef.current.style.display = "flex")
             setTimeout(() => {
               copyRef.current && (copyRef.current.style.display = "none")
@@ -94,7 +94,7 @@ export default function Slug() {
           } else {
             //@ts-ignore
             document.execCommand("copy", false, e.target.getAttribute("data-clipboard-text"));
-            jsConfetti.addConfetti()
+            // jsConfetti.addConfetti()
             copyRef.current && (copyRef.current.style.display = "flex")
             setTimeout(() => {
               copyRef.current && (copyRef.current.style.display = "none")

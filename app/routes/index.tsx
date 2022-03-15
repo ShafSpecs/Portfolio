@@ -1,5 +1,6 @@
 import { Link } from "remix";
 import { FaCodepen } from "react-icons/fa";
+import { BiCoffeeTogo } from "react-icons/bi";
 
 import styles from "../styles/homepage.css";
 
@@ -156,7 +157,16 @@ export default function Index() {
               target="_blank"
               className="a-link"
             >
-              <FaCodepen className="feather-github" />
+              <FaCodepen className="feather-codepen" title="CodePen"/>
+            </a>
+          </li>
+          <li className="feather">
+            <a
+              href="https://github.com/ShafSpecs"
+              target="_blank"
+              className="a-link"
+            >
+              <BiCoffeeTogo title="Buy Me A Coffee" className="feather-bmac"/>
             </a>
           </li>
           {/* <li className="feather">

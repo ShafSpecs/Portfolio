@@ -6,6 +6,7 @@ import Tracker from "../projects/tracker.svg";
 
 import style from "../styles/portfolio.css";
 import type { LinksFunction, MetaFunction } from "remix";
+import { BiCoffeeTogo } from "react-icons/bi";
 
 export const links = () => {
   return [{ rel: "stylesheet", href: style }];
@@ -122,7 +123,16 @@ export default function Portfolio() {
               target="_blank"
               className="a-link"
             >
-              <FaCodepen className="feather-github" />
+              <FaCodepen className="feather-codepen" title="CodePen"/>
+            </a>
+          </li>
+          <li className="feather">
+            <a
+              href="https://github.com/ShafSpecs"
+              target="_blank"
+              className="a-link"
+            >
+              <BiCoffeeTogo title="Buy Me A Coffee" className="feather-bmac"/>
             </a>
           </li>
         </ul>

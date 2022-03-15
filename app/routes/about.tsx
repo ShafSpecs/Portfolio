@@ -3,6 +3,7 @@ import svg from "../projects/face_co.svg";
 import style from "../styles/about.css";
 
 import type { LinksFunction, MetaFunction } from "remix";
+import { BiCoffeeTogo } from "react-icons/bi";
 
 export const links: LinksFunction = () => {
   return [{ rel: "stylesheet", href: style }];
@@ -93,7 +94,16 @@ export default function About() {
               target="_blank"
               className="a-link"
             >
-              <FaCodepen className="feather-github" />
+              <FaCodepen className="feather-codepen" title="CodePen"/>
+            </a>
+          </li>
+          <li className="feather">
+            <a
+              href="https://github.com/ShafSpecs"
+              target="_blank"
+              className="a-link"
+            >
+              <BiCoffeeTogo title="Buy Me A Coffee" className="feather-bmac"/>
             </a>
           </li>
           {/* <li className="feather">
