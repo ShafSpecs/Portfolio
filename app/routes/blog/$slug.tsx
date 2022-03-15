@@ -1,7 +1,6 @@
 import { useEffect, useRef } from "react";
-import { useLoaderData, useTransition, Link } from "remix";
+import { useLoaderData, useTransition } from "remix";
 import { format } from "date-fns";
-import { copyListener } from "~/utils/client/events.client";
 
 import type { LoaderFunction } from "remix";
 
