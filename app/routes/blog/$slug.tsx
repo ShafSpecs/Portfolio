@@ -1,6 +1,7 @@
 import { useEffect, useRef } from "react";
 import { useLoaderData, useTransition } from "remix";
 import { format } from "date-fns";
+import JSConfetti from 'js-confetti';
 
 import type { LoaderFunction } from "remix";
 
@@ -44,8 +45,11 @@ export default function Slug() {
   const blogRef = useRef<HTMLDivElement>(null!);
   const avgRef = useRef<HTMLDivElement>(null!);
   const dateRef = useRef<HTMLDivElement>(null!);
+  const copyRef = useRef<HTMLDivElement>(null!);
 
   useEffect(() => {
+    const jsConfetti = new JSConfetti()
+
     if (transition.state == "idle") {
       blogRef.current && (blogRef.current.innerHTML = data.content);
 
@@ -79,13 +83,22 @@ export default function Slug() {
       document.addEventListener("click", function (e) {
         //@ts-ignore
         if (e.target && e.target.id == "copy-btn") {
-          console.log("Done")
           if(navigator.clipboard) {
             //@ts-ignore
             navigator.clipboard.writeText(e.target.getAttribute("data-clipboard-text"));
+            jsConfetti.addConfetti()
+            copyRef.current && (copyRef.current.style.display = "flex")
+            setTimeout(() => {
+              copyRef.current && (copyRef.current.style.display = "none")
+            }, 2500)
           } else {
             //@ts-ignore
             document.execCommand("copy", false, e.target.getAttribute("data-clipboard-text"));
+            jsConfetti.addConfetti()
+            copyRef.current && (copyRef.current.style.display = "flex")
+            setTimeout(() => {
+              copyRef.current && (copyRef.current.style.display = "none")
+            }, 2500)
           }
         }
       });
@@ -99,6 +112,9 @@ export default function Slug() {
           <span>&#8592;</span> Return back to overview
         </section>
       </a>
+      <section className="copy" ref={copyRef}>
+        Copied!
+      </section>
       <section className="head">
         <section className="blog-meta">
           <h1>{data?.data.title}</h1>
