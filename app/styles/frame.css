@@ -89,6 +89,10 @@ code.hljs {
     user-select: auto;
 }
 
+.copy-btn:hover {
+    background-color: #555;
+}
+
 @media screen and (max-width: 640px) {
     .markdown-body {
         padding: 30px 10px;
