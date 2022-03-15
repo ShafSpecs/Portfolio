@@ -8,12 +8,18 @@
     --ff-primary: 'Matter', sans-serif;
     --visible: visible;
     --nav-gradient: linear-gradient(to top, #fff, #f0f0f0ce);
+    --track-clr: #e5e5e5;
+    --scrollbar-clr: #777;
+    --scrollbar-hover: #555;
 }
 
 [data-theme="dark"] {
     --nav-gradient: linear-gradient(to top, #0099ff, #0099ffb1);
     --clr-primary: rgb(230, 230, 230);
     --bg-clr: #1a1b1e;
+    --scrollbar-clr: #3b3d44;
+    --scrollbar-hover: #2c2e35;
+    --track-clr: #67686b;
     /* --bg-clr: #0a1538; */
     --blue: rgb(0, 183, 255);
     --clr-neutral-100: #000;
@@ -76,6 +82,23 @@ body {
     display: flex;
     flex-direction: column;
     font-family: var(--ff-primary);
+}
+
+::-webkit-scrollbar {
+    width: 0.75rem;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--track-clr);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--scrollbar-clr);
+    border-radius: 0.325rem;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--scrollbar-hover);
 }
 
 .header {
@@ -235,13 +258,13 @@ a:any-link {
         width: 100%;
         margin: 0.625rem 0;
     }
-    
+
     .mobileNav a {
         width: 100%;
         height: 100%;
         display: flex;
     }
-    
+
     .mobileNav span {
         padding: 0.125rem 0;
         width: 100%;
@@ -281,7 +304,7 @@ a:any-link {
         border-left: 4px solid #000;
         background-image: linear-gradient(to right, #5050509c, #ffffff00);
     }
-    
+
     [data-theme="dark"] .active-nav-mobile {
         border-left: 4px solid rgb(0, 60, 255);
     }
@@ -289,7 +312,7 @@ a:any-link {
     .navbar {
         display: none;
     }
-    
+
     html {
         font-size: 12.5px;
     }
