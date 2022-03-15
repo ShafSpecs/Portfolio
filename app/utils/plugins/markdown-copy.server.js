@@ -35,11 +35,11 @@ function renderCode(origRule, options) {
 			return origRendered;
 
 		return `
-<div style="position: relative">
-	${origRendered}
-	<button class="markdown-it-code-copy ${options.buttonClass}" id="copy-btn" data-clipboard-text="${content}" style="${options.buttonStyle}" title="Copy"></button>
-</div>
-`;
+			<div style="position: relative">
+				${origRendered}
+				<button class="markdown-it-code-copy ${options.buttonClass}" id="copy-btn" data-clipboard-text="${content}" style="${options.buttonStyle}" title="Copy"></button>
+			</div>
+		`;
 	};
 }
 
