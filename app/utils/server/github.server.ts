@@ -71,13 +71,6 @@ export async function getSinglePost(name: string) {
   const parsed = grayMatter(decoded);
   const { data, content } = parsed;
 
-  // const html = toHTML({
-  //   input: content,
-  //   components: components,
-  //   context: { user: { favoriteColor: "blue" } },
-  //   markdownEngine: markdownItEngine(),
-  // });
-
   const html = md.render(content);
 
   return {
