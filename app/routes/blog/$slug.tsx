@@ -3,7 +3,7 @@ import { useLoaderData, useTransition } from "remix";
 import { format } from "date-fns";
 import JSConfetti from 'js-confetti';
 
-import type { LoaderFunction } from "remix";
+import type { LoaderFunction, MetaFunction } from "remix";
 
 import style from "../../styles/blog-slug.css";
 import frame from "../../styles/frame.css";
@@ -36,6 +36,33 @@ export const loader: LoaderFunction = async ({ params }) => {
     data: data.frontmatter,
   };
 };
+
+export const meta: MetaFunction = ({ data }) => {
+  if (!data) {}
+  return {
+    title: data.data.title,
+    description: data.data.description,
+    keywords: `Remix,ShafSpecs,Shaf,Blog,Portfolio,Fashola,Abdur-Rahman,${data.data.title},${data.data.description}`,
+    "twitter:image": data.data.image,
+    "og:image": data.data.image,
+    "twitter:card": "summary_large_image",
+    "twitter:creator": "@ShafSpecs",
+    "twitter:site": "@ShafSpecs",
+    "twitter:title": data.data.title,
+    "og:title": "ShafSpecs",
+    "og:type": "website",
+    "og:url": `https://shafspecs.fly.dev/blog/${data.data.slug}`,
+    "twitter:description": data.data.description,
+    "og:locale": "en_US",
+    "og:image:alt": "ShafSpecs",
+    "og:image:width": "1200",
+    "og:image:height": "630",
+    "og:image:type": "image/png",
+    "og:image:secure_url": data.data.image,
+    "og:image:url": data.data.image,
+    "og:description": data.data.description
+  }
+}
 
 export default function Slug() {
   const data = useLoaderData();
