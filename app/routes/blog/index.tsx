@@ -3,9 +3,18 @@ import { useLoaderData, Link } from "remix";
 import { format } from "date-fns";
 import { PostsData } from "~/utils/server/github.server"
 
-import type { ActionFunction, LoaderFunction } from "remix";
+import type { ActionFunction, LoaderFunction, MetaFunction } from "remix";
 
 import styles from "../../styles/blog.css"
+
+export const meta: MetaFunction = () => {
+  return {
+    title: "ShafSpecs - Digital Garden",
+    description: "Scraps and pieces of knowledge and maybe some wisdom from my digital garden.",
+    "twitter:description": "Scraps and pieces of knowledge and maybe some wisdom from my digital garden.",
+    "og:description": "Scraps and pieces of knowledge and maybe some wisdom from my digital garden."
+  };
+}
 
 export function links() {
   return [{ rel: "stylesheet", href: styles }];

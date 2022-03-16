@@ -35,7 +35,7 @@ export const meta: MetaFunction = () => {
     "twitter:title": "ShafSpecs",
     "og:title": "ShafSpecs",
     "og:type": "website",
-    "og:url": "https://shafspecs.vercel.app",
+    "og:url": "https://shafspecs.fly.dev",
     "twitter:description": "Hello there friends. My name is Abdur-Rahman, welcome to my site where I showcase my projects, share my thoughts & experiences, and my Digital Garden. I am ShafSpecs and welcome to my Universe.",
     "og:locale": "en_US",
     "og:image:alt": "ShafSpecs",

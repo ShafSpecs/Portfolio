@@ -14,6 +14,10 @@ export const meta: MetaFunction = () => {
     title: "ShafSpecs - About Me",
     description:
       "Learn more about Abdur-Rahman Fashola aka ShafSpecs, and let's connect!",
+    "twitter:description":
+      "Learn more about Abdur-Rahman Fashola aka ShafSpecs, and let's connect!",
+    "og:description":
+      "Learn more about Abdur-Rahman Fashola aka ShafSpecs, and let's connect!",
     keywords:
       "ShafSpecs, Abdur-Rahman, Fashola, Shaf, Digital Garden, About Me, About, About Shaf",
   };
@@ -94,7 +98,7 @@ export default function About() {
               target="_blank"
               className="a-link"
             >
-              <FaCodepen className="feather-codepen" title="CodePen"/>
+              <FaCodepen className="feather-codepen" title="CodePen" />
             </a>
           </li>
           <li className="feather">
@@ -103,7 +107,7 @@ export default function About() {
               target="_blank"
               className="a-link"
             >
-              <BiCoffeeTogo title="Buy Me A Coffee" className="feather-bmac"/>
+              <BiCoffeeTogo title="Buy Me A Coffee" className="feather-bmac" />
             </a>
           </li>
           {/* <li className="feather">
