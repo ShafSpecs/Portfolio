@@ -8,12 +8,24 @@ export let loader: LoaderFunction = () => {
       name: "Remix PWA",
       start_url: "/",
       display: "standalone",
-      background_color: "#d3d7dd",
-      theme_color: "#c34138",
+      background_color: "#1a1b1e",
+      theme_color: "#0C0D0E",
       shortcuts: [
         {
           name: "Homepage",
           url: "/",
+          icons: [
+            {
+              src: "/icons/android-icon-96x96.png",
+              sizes: "96x96",
+              type: "image/png",
+              purpose: "any monochrome",
+            },
+          ],
+        },
+        {
+          name: "Blog - Digital Garden",
+          url: "/blog",
           icons: [
             {
               src: "/icons/android-icon-96x96.png",
