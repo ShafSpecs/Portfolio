@@ -23,7 +23,7 @@
     /* --bg-clr: #0a1538; */
     --blue: rgb(0, 183, 255);
     --clr-neutral-100: #000;
-    --clr-element: rgb(0, 140, 255);
+    --clr-element: #008cff;
 }
 
 @font-face {
