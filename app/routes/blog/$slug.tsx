@@ -1,7 +1,7 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useLoaderData, useTransition } from "remix";
 import { format } from "date-fns";
-import JSConfetti from 'js-confetti';
+import JSConfetti from "js-confetti";
 
 import type { LoaderFunction, MetaFunction } from "remix";
 
@@ -38,7 +38,8 @@ export const loader: LoaderFunction = async ({ params }) => {
 };
 
 export const meta: MetaFunction = ({ data }) => {
-  if (!data) {}
+  if (!data) {
+  }
   return {
     title: data.data.title,
     description: data.data.description,
@@ -60,22 +61,27 @@ export const meta: MetaFunction = ({ data }) => {
     "og:image:type": "image/png",
     "og:image:secure_url": data.data.image,
     "og:image:url": data.data.image,
-    "og:description": data.data.description
-  }
-}
+    "og:description": data.data.description,
+  };
+};
 
 export default function Slug() {
   const data = useLoaderData();
   const transition = useTransition();
+
+  const [modalState, setModalState] = useState<"open" | "close">("close");
+
   const bodyRef = useRef<HTMLDivElement>(null!);
 
   const blogRef = useRef<HTMLDivElement>(null!);
   const avgRef = useRef<HTMLDivElement>(null!);
   const dateRef = useRef<HTMLDivElement>(null!);
   const copyRef = useRef<HTMLDivElement>(null!);
+  const modalRef = useRef<HTMLDivElement>(null!);
+  const imageRef = useRef<HTMLImageElement>(null!);
 
   useEffect(() => {
-    const jsConfetti = new JSConfetti()
+    const jsConfetti = new JSConfetti();
 
     if (transition.state == "idle") {
       blogRef.current && (blogRef.current.innerHTML = data.content);
@@ -110,23 +116,51 @@ export default function Slug() {
       document.addEventListener("click", function (e) {
         //@ts-ignore
         if (e.target && e.target.id == "copy-btn") {
-          if(navigator.clipboard) {
-            //@ts-ignore
-            navigator.clipboard.writeText(e.target.getAttribute("data-clipboard-text"));
+          if (navigator.clipboard) {
+            navigator.clipboard.writeText(
+              //@ts-ignore
+              e.target.getAttribute("data-clipboard-text")
+            );
             // jsConfetti.addConfetti()
-            copyRef.current && (copyRef.current.style.display = "flex")
+            copyRef.current && (copyRef.current.style.display = "flex");
             setTimeout(() => {
-              copyRef.current && (copyRef.current.style.display = "none")
-            }, 2500)
+              copyRef.current && (copyRef.current.style.display = "none");
+            }, 2500);
           } else {
-            //@ts-ignore
-            document.execCommand("copy", false, e.target.getAttribute("data-clipboard-text"));
+            document.execCommand(
+              "copy",
+              false,
+              //@ts-ignore
+              e.target.getAttribute("data-clipboard-text")
+            );
             // jsConfetti.addConfetti()
-            copyRef.current && (copyRef.current.style.display = "flex")
+            copyRef.current && (copyRef.current.style.display = "flex");
             setTimeout(() => {
-              copyRef.current && (copyRef.current.style.display = "none")
-            }, 2500)
+              copyRef.current && (copyRef.current.style.display = "none");
+            }, 2500);
           }
+          //@ts-ignore
+        } else if (
+          e.target &&
+          //@ts-ignore
+          e.target.tagName === "IMG" &&
+          //@ts-ignore
+          e.target.parentNode.tagName === "P" &&
+          modalRef.current &&
+          imageRef.current
+        ) {
+          //@ts-ignore
+          imageRef.current.src = e.target.src;
+          modalRef.current.style.display = "flex";
+          setModalState("open");
+        } else if (
+          e.target &&
+          //@ts-ignore
+          e.target.className !== "zoom-modal" &&
+          modalState === "open"
+        ) {
+          modalRef.current.style.display = "none";
+          setModalState("close");
         }
       });
     }
@@ -141,6 +175,9 @@ export default function Slug() {
       </a>
       <section className="copy" ref={copyRef}>
         Copied!
+      </section>
+      <section className="modal" ref={modalRef}>
+        <img className="zoom-modal" src="" alt="Zoomed modal" ref={imageRef} />
       </section>
       <section className="head">
         <section className="blog-meta">
