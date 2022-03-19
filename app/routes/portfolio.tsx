@@ -36,11 +36,9 @@ function Card({ image, alt, title, desc, github, preview }: any) {
         <a href={github} className="btn-link">
           <button className="card-btn">Github</button>
         </a>
-        {preview && (
-          <a href={preview} className="btn-link">
-            <button className="card-btn">Preview</button>
-          </a>
-        )}
+        <a href={preview} className="btn-link">
+          <button className="card-btn">Preview</button>
+        </a>
       </div>
     </div>
   );
@@ -123,7 +121,7 @@ export default function Portfolio() {
               target="_blank"
               className="a-link"
             >
-              <FaCodepen className="feather-codepen" title="CodePen"/>
+              <FaCodepen className="feather-codepen" title="CodePen" />
             </a>
           </li>
           <li className="feather">
@@ -132,7 +130,7 @@ export default function Portfolio() {
               target="_blank"
               className="a-link"
             >
-              <BiCoffeeTogo title="Buy Me A Coffee" className="feather-bmac"/>
+              <BiCoffeeTogo title="Buy Me A Coffee" className="feather-bmac" />
             </a>
           </li>
         </ul>
@@ -145,6 +143,18 @@ export default function Portfolio() {
             alt="Portfolio"
             title="Nighty Night Theme"
             desc="A minimal, dark bluish-black theme for VS Code, with calming colors and high contrast, it is a 👍. Available on Visual Studio Marketplace."
+          />
+          <Card
+            image="https://ucarecdn.com/ab502fed-46f6-4db0-866a-42d82b5d296d/UntitledDesign3.png"
+            alt="Remix PWA"
+            title="Remix PWA"
+            desc="A standalone package for integrating PWA features into Remix, a full-stack web framework. Make your development faster easier and cross-platform ready with Remix PWA"
+          />
+          <Card
+            image={CodePlay}
+            alt="CodePlay"
+            title="CodePlay Editor"
+            desc="AA simple web-based code editor for HTML, CSS and JavaScript. Play and have fun now!"
           />
           <Card
             image={Tracker}
