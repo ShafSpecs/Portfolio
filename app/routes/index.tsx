@@ -24,7 +24,7 @@ function ProjectCard({ title, desc, git, link, pic, svg }: any) {
       <div className="flip-card-inner">
         <div className="flip-card-front">
           <img
-            style={svg ? { backgroundColor: "#7e7e7e" } : {}}
+            style={svg ? { backgroundColor: "#fff", objectFit: "contain" } : {}}
             src={pic}
             alt="Project"
           />
@@ -210,6 +210,14 @@ export default function Index() {
           <h3>My Work</h3>
           <div className="projects">
             <ProjectCard
+              pic="https://ucarecdn.com/ab502fed-46f6-4db0-866a-42d82b5d296d/UntitledDesign3.png"
+              svg={true}
+              title="📱 Remix PWA"
+              desc="A lightweight, standalone package to integrate full PWA features into Remix 💿. Allows for custom caching, offline support, and much more."
+              git="https://github.com/ShafSpecs/remix-pwa"
+              link="https://www.npmjs.com/package/remix-pwa"
+            />
+            <ProjectCard
               pic={Nighty}
               svg={false}
               title="Nighty Night 🌙"
@@ -223,15 +231,7 @@ export default function Index() {
               title="👨‍💻 CodePlay"
               desc="A simple, yet powerful, code playground for learning and practicing basic Web Development languages."
               git="https://github.com/ShafSpecs/CodePlay-Editor"
-              link=""
-            />
-            <ProjectCard
-              pic={Tracker}
-              svg={true}
-              title="🏃‍♂️ Task Tracker"
-              desc="A simple task tracker for managing your daily tasks. It is a 👍."
-              git="https://github.com/ShafSpecs/Task-Tracker_Remix"
-              link="https://task-tracker-remix.vercel.app/"
+              link="https://code-play-editor.vercel.app/"
             />
             <div className="next-work">
               <Link to="/portfolio">
