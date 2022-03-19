@@ -72,6 +72,26 @@ body {
     object-fit: contain;
 }
 
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.75);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    z-index: 9999999999;
+}
+
+.modal img {
+    max-width: 75%;
+    max-height: 90%;
+    object-fit: contain;
+}
+
 /* Comepletely nuked the theme toggle button here */
 
 .theme-toggle {
